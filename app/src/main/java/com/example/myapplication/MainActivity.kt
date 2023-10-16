@@ -47,9 +47,6 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.rc_item)
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
         recyclerView.adapter = itemsAdapter
-        recyclerView.adapter?.notifyDataSetChanged()
-
-            val listItems = listItems
 
         itemsAdapter.submitList(listItems)
 
@@ -57,6 +54,5 @@ class MainActivity : AppCompatActivity() {
         goToEntryFieldActivity.setOnClickListener {
             startActivity(Intent(this,EntryFieldActivity::class.java))
         }
-
     }
 }
