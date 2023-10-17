@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidhomework.adapter.ItemsAdapter
 import com.example.myapplication.model.ItemModel
 
- val listItems:MutableList<ItemModel> = mutableListOf( ItemModel(
-    "m4a1",
-    "m4a1",
-    "28.11.2022"
-),
+val listItems: MutableList<ItemModel> = mutableListOf(
+    ItemModel(
+        "m4a1",
+        "m4a1",
+        "28.11.2022"
+    ),
     ItemModel(
         "m4a1",
         "AUG",
@@ -34,10 +35,12 @@ import com.example.myapplication.model.ItemModel
         "m4a1=awp",
         "m4a1",
         "24.11.2022"
-    ),)
+    ),
+)
 
 class MainActivity : AppCompatActivity() {
     private lateinit var itemsAdapter: ItemsAdapter
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,14 +48,12 @@ class MainActivity : AppCompatActivity() {
 
         itemsAdapter = ItemsAdapter()
         val recyclerView = findViewById<RecyclerView>(R.id.rc_item)
-        recyclerView.layoutManager = LinearLayoutManager(baseContext)
         recyclerView.adapter = itemsAdapter
 
         itemsAdapter.submitList(listItems)
 
-        val goToEntryFieldActivity = findViewById<Button>(R.id.bnToEntryField)
-        goToEntryFieldActivity.setOnClickListener {
-            startActivity(Intent(this,EntryFieldActivity::class.java))
+        findViewById<Button>(R.id.bnToEntryField).setOnClickListener {
+            startActivity(Intent(this, EntryFieldActivity::class.java))
         }
     }
 }

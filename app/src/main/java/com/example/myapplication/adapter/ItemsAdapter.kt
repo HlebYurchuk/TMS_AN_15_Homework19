@@ -8,8 +8,7 @@ import com.example.myapplication.adapter.ItemsViewHolder
 import com.example.myapplication.model.ItemModel
 
 
-class ItemsAdapter(
-): RecyclerView.Adapter<ItemsViewHolder>() {
+class ItemsAdapter(): RecyclerView.Adapter<ItemsViewHolder>() {
 
     private var listItems = mutableListOf<ItemModel>()
 

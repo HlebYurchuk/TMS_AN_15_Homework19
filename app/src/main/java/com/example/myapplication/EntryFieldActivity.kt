@@ -19,22 +19,24 @@ class EntryFieldActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entry_field)
 
-      // val listItems = listItems
-
         val addData = findViewById<Button>(R.id.btnRg)
         val headingText = findViewById<EditText>(R.id.etHeading)
         val messageText = findViewById<EditText>(R.id.etMessage)
 
         addData.setOnClickListener {
-            listItems.add(ItemModel(
-                headingText.text.toString(),messageText.text.toString(), getCurrentDate()
-            ))
+            listItems.add(
+                ItemModel(
+                    headingText.text.toString(), messageText.text.toString(), getCurrentDate()
+                )
+            )
             Log.w("hi", listItems.toString())
-            startActivity(Intent(this,MainActivity::class.java)) }
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
+    }
 
-     private fun getCurrentDate(): String {
+    private fun getCurrentDate(): String {
         val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
         return dateFormat.format(Date())
     }
-    }
+}
