@@ -39,14 +39,13 @@ val listItems: MutableList<ItemModel> = mutableListOf(
 )
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var itemsAdapter: ItemsAdapter
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        itemsAdapter = ItemsAdapter()
+        val itemsAdapter: ItemsAdapter = ItemsAdapter()
         val recyclerView = findViewById<RecyclerView>(R.id.rc_item)
         recyclerView.adapter = itemsAdapter
 

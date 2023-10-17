@@ -10,19 +10,18 @@ import com.example.myapplication.model.ItemModel
 
 class ItemsAdapter(): RecyclerView.Adapter<ItemsViewHolder>() {
 
-    private var listItems = mutableListOf<ItemModel>()
+    private var listItems = listOf<ItemModel>()
 
     fun submitList(list: List<ItemModel>){
-        this.listItems = list.toMutableList()
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
-        return ItemsViewHolder(view)
+        listItems = list.toMutableList()
     }
 
     override fun onBindViewHolder(holder: ItemsViewHolder, position: Int) {
         holder.bind(listItems[position])
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsViewHolder {
+        return ItemsViewHolder.from(parent)
     }
 
     override fun getItemCount(): Int {
